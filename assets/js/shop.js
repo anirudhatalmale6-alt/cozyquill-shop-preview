@@ -12,7 +12,9 @@
 const GENRES = [
     { id: 'cozy_escape',     emoji: '☕',  name: 'Cozy Escape',     stock: 12, img: 'assets/images/cat_cozy_escape.png',
       vibes: ['Comfort Reads', 'Gentle Chemistry', 'Sunshine Escapes', 'Happy Endings'] },
-    { id: 'sports_romance',  emoji: '🏆',  name: 'Sports Romance',  stock: 8,  img: 'assets/images/cat_sports_romance.png',
+    // stock figures are dummy demo data — Sports Romance is set to 0 purely to show
+    // the sold-out state, and Fantasy Romance to 3 to show the low-stock warning
+    { id: 'sports_romance',  emoji: '🏆',  name: 'Sports Romance',  stock: 0,  img: 'assets/images/cat_sports_romance.png',
       vibes: ['Rivalries', 'Teammates', 'Forced Proximity', 'Off-Limits Attraction'] },
     { id: 'bookish_romance', emoji: '📚',  name: 'Bookish Romance', stock: 15, img: 'assets/images/cat_bookish_romance.png',
       vibes: ['Bookshops & Libraries', 'Writers and Readers', 'Literary Love', 'Slow Burn'] },
@@ -22,8 +24,7 @@ const GENRES = [
       vibes: ['Small Towns', 'Found Family', 'Second Chances', 'Grumpy Meets Sunshine'] },
     { id: 'fantasy_romance', emoji: '🏰',  name: 'Fantasy Romance', stock: 3,  img: 'assets/images/cat_fantasy_romance.png',
       vibes: ['Magic', 'Enemies to Lovers', 'Forbidden Romance', 'High Stakes'] },
-    // no badge artwork supplied for Morally Grey yet — its clue card stands in
-    { id: 'morally_grey',    emoji: '🖤',  name: 'Morally Grey',    stock: 0,  img: 'assets/images/cat_morally_grey.png',
+    { id: 'morally_grey',    emoji: '🖤',  name: 'Morally Grey',    stock: 7,  img: 'assets/images/cat_morally_grey.png',
       vibes: ['Dangerous Attraction', 'Obsession', 'Antiheroes', 'Darker Themes'] }
 ];
 
