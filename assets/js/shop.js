@@ -7,13 +7,14 @@
    ========================================================================== */
 
 const GENRES = [
-    { id: 'cozy_escape',     emoji: '☕',  name: 'Cozy Escape',     stock: 12 },
-    { id: 'sports_romance',  emoji: '🏆',  name: 'Sports Romance',  stock: 8  },
-    { id: 'bookish_romance', emoji: '📚',  name: 'Bookish Romance', stock: 15 },
-    { id: 'rom_com',         emoji: '😂',  name: 'Rom-Com',         stock: 6  },
-    { id: 'heartwarming',    emoji: '💕',  name: 'Heartwarming',    stock: 9  },
-    { id: 'fantasy_romance', emoji: '🏰',  name: 'Fantasy Romance', stock: 3  },
-    { id: 'morally_grey',    emoji: '🖤',  name: 'Morally Grey',    stock: 0  }
+    { id: 'cozy_escape',     emoji: '☕',  name: 'Cozy Escape',     stock: 12, img: 'assets/images/cat_cozy_escape.png' },
+    { id: 'sports_romance',  emoji: '🏆',  name: 'Sports Romance',  stock: 8,  img: 'assets/images/cat_sports_romance.png' },
+    { id: 'bookish_romance', emoji: '📚',  name: 'Bookish Romance', stock: 15, img: 'assets/images/cat_bookish_romance.png' },
+    { id: 'rom_com',         emoji: '😂',  name: 'Rom-Com',         stock: 6,  img: 'assets/images/cat_rom_com.png' },
+    { id: 'heartwarming',    emoji: '💕',  name: 'Heartwarming',    stock: 9,  img: 'assets/images/cat_heartwarming.png' },
+    { id: 'fantasy_romance', emoji: '🏰',  name: 'Fantasy Romance', stock: 3,  img: 'assets/images/cat_fantasy_romance.png' },
+    // no badge artwork supplied for Morally Grey yet — its clue card stands in
+    { id: 'morally_grey',    emoji: '🖤',  name: 'Morally Grey',    stock: 0,  img: 'assets/images/cat_morally_grey.png' }
 ];
 
 const SPICE = [
@@ -46,7 +47,7 @@ function renderGenres() {
         return `
             <label class="genre_opt ${soldOut ? 'sold_out' : ''}" data-id="${g.id}">
                 <input type="radio" name="genre" value="${g.id}" ${soldOut ? 'disabled' : ''}>
-                <span class="g_emoji">${g.emoji}</span>
+                <span class="g_badge"><img src="${g.img}" alt="${g.name}" loading="lazy"></span>
                 <span class="g_name">${g.name}</span>
                 <span class="g_stock ${low || soldOut ? 'low' : ''}">${stockLabel}</span>
             </label>`;

@@ -15,7 +15,7 @@
 <body>
 
 <div class="demo_bar" id="demoBar">
-    <strong>STAGE 1 PREVIEW</strong> — front-end demonstration for Claudia, now with your real product photography. Pricing is still a placeholder. Cart, checkout and Square payments are built in Stages 2–3.
+    <strong>STAGE 1 PREVIEW</strong> — front-end demonstration for Claudia, using your own photography, category artwork and clue-card pricing. Cart, checkout and Square payments are built in Stages 2–3.
     <button type="button" onclick="document.getElementById('demoBar').remove()" aria-label="Dismiss">&times;</button>
 </div>
 
@@ -64,13 +64,14 @@
                     </div>
                     <div class="gallery_thumbs" id="galleryThumbs">
                         <button class="active" data-src="assets/images/bd_hero.jpg"><img src="assets/images/bd_hero.jpg" alt=""></button>
+                        <button data-src="assets/images/bd_angle1.jpg"><img src="assets/images/bd_angle1.jpg" alt=""></button>
+                        <button data-src="assets/images/bd_angle2.jpg"><img src="assets/images/bd_angle2.jpg" alt=""></button>
+                        <button data-src="assets/images/bd_angle3.jpg"><img src="assets/images/bd_angle3.jpg" alt=""></button>
+                        <button data-src="assets/images/bd_clue_card.jpg"><img src="assets/images/bd_clue_card.jpg" alt=""></button>
                         <button data-src="assets/images/bd_review_card.jpg"><img src="assets/images/bd_review_card.jpg" alt=""></button>
-                        <button data-src="assets/images/bd_order_card.jpg"><img src="assets/images/bd_order_card.jpg" alt=""></button>
-                        <button data-src="assets/images/bd_sticker.jpg"><img src="assets/images/bd_sticker.jpg" alt=""></button>
-                        <button data-src="assets/images/bd_wrap.jpg"><img src="assets/images/bd_wrap.jpg" alt=""></button>
                     </div>
                     <div class="ship_note" style="margin-top:20px;">
-                        <strong>Your real parcel photo.</strong> The four detail shots are close crops of that same photo, so you can see how a multi-image gallery behaves. Send more angles whenever you like and they drop straight in.
+                        <strong>All your own photography.</strong> Six images including three parcel angles, a clue card and the Book Review card. In the real build you'll reorder or replace these yourself from the admin.
                     </div>
                 </div>
             </div>
@@ -81,8 +82,8 @@
                 <p class="pd_short">Don't judge a book by its cover. Choose your romance mood, tell us what makes you swoon, and we'll match you with a mystery read chosen just for you. 💌📚</p>
 
                 <div class="pd_price_row">
-                    <span class="pd_price" id="pdPrice">$29.95</span>
-                    <span class="placeholder_flag">Placeholder price</span>
+                    <span class="pd_price" id="pdPrice">$25.00</span>
+                    <span class="placeholder_flag">From your clue cards</span>
                 </div>
 
                 <form id="bdForm" novalidate>
