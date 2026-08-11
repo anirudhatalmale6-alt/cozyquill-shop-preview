@@ -6,15 +6,25 @@
    a static page with no server behind it.
    ========================================================================== */
 
+/* `vibes` are broad, category-level examples — deliberately NOT the specific tropes
+   printed on an individual clue card, so nothing here reads as a promise about the
+   book a customer actually receives. Claudia writes these in the admin. */
 const GENRES = [
-    { id: 'cozy_escape',     emoji: '☕',  name: 'Cozy Escape',     stock: 12, img: 'assets/images/cat_cozy_escape.png' },
-    { id: 'sports_romance',  emoji: '🏆',  name: 'Sports Romance',  stock: 8,  img: 'assets/images/cat_sports_romance.png' },
-    { id: 'bookish_romance', emoji: '📚',  name: 'Bookish Romance', stock: 15, img: 'assets/images/cat_bookish_romance.png' },
-    { id: 'rom_com',         emoji: '😂',  name: 'Rom-Com',         stock: 6,  img: 'assets/images/cat_rom_com.png' },
-    { id: 'heartwarming',    emoji: '💕',  name: 'Heartwarming',    stock: 9,  img: 'assets/images/cat_heartwarming.png' },
-    { id: 'fantasy_romance', emoji: '🏰',  name: 'Fantasy Romance', stock: 3,  img: 'assets/images/cat_fantasy_romance.png' },
+    { id: 'cozy_escape',     emoji: '☕',  name: 'Cozy Escape',     stock: 12, img: 'assets/images/cat_cozy_escape.png',
+      vibes: ['Comfort Reads', 'Gentle Chemistry', 'Sunshine Escapes', 'Happy Endings'] },
+    { id: 'sports_romance',  emoji: '🏆',  name: 'Sports Romance',  stock: 8,  img: 'assets/images/cat_sports_romance.png',
+      vibes: ['Rivalries', 'Teammates', 'Forced Proximity', 'Off-Limits Attraction'] },
+    { id: 'bookish_romance', emoji: '📚',  name: 'Bookish Romance', stock: 15, img: 'assets/images/cat_bookish_romance.png',
+      vibes: ['Bookshops & Libraries', 'Writers and Readers', 'Literary Love', 'Slow Burn'] },
+    { id: 'rom_com',         emoji: '😂',  name: 'Rom-Com',         stock: 6,  img: 'assets/images/cat_rom_com.png',
+      vibes: ['Meet-Cutes', 'Banter', 'Fake Dating', 'Opposites Attract'] },
+    { id: 'heartwarming',    emoji: '💕',  name: 'Heartwarming',    stock: 9,  img: 'assets/images/cat_heartwarming.png',
+      vibes: ['Small Towns', 'Found Family', 'Second Chances', 'Grumpy Meets Sunshine'] },
+    { id: 'fantasy_romance', emoji: '🏰',  name: 'Fantasy Romance', stock: 3,  img: 'assets/images/cat_fantasy_romance.png',
+      vibes: ['Magic', 'Enemies to Lovers', 'Forbidden Romance', 'High Stakes'] },
     // no badge artwork supplied for Morally Grey yet — its clue card stands in
-    { id: 'morally_grey',    emoji: '🖤',  name: 'Morally Grey',    stock: 0,  img: 'assets/images/cat_morally_grey.png' }
+    { id: 'morally_grey',    emoji: '🖤',  name: 'Morally Grey',    stock: 0,  img: 'assets/images/cat_morally_grey.png',
+      vibes: ['Dangerous Attraction', 'Obsession', 'Antiheroes', 'Darker Themes'] }
 ];
 
 const SPICE = [
@@ -68,6 +78,7 @@ function renderGenres() {
             selectedGenre = GENRES.find(g => g.id === el.dataset.id);
             wrap.querySelectorAll('.genre_opt').forEach(o => o.classList.remove('selected'));
             el.classList.add('selected');
+            renderVibes();
             updateSummary();
         });
     });
@@ -92,6 +103,32 @@ function renderSpice() {
             updateSummary();
         });
     });
+}
+
+/* ---------- "You might find…" panel -------------------------------------
+   Shows broad category vibes once a category is chosen. The wording is
+   deliberately non-committal — the book is hand-picked, so nothing here can
+   read as a guarantee that a particular trope will appear.                  */
+
+function renderVibes() {
+    const box = document.getElementById('genreVibes');
+    if (!box) return;
+
+    if (!selectedGenre || !selectedGenre.vibes) {
+        box.classList.remove('open');
+        box.innerHTML = '';
+        return;
+    }
+
+    box.innerHTML =
+        '<div class="vibes_head">You might find&hellip;</div>' +
+        '<div class="vibes_row">' +
+        selectedGenre.vibes.map(v => `<span class="vibe">${v}</span>`).join('') +
+        '</div>' +
+        '<p class="vibes_note">Examples of the kinds of stories in this category. Every book is ' +
+        'hand-picked for you, so these are a flavour of what to expect rather than a promise ' +
+        'about your particular match.</p>';
+    box.classList.add('open');
 }
 
 /* ---------- Live matchmaking summary ------------------------------------ */

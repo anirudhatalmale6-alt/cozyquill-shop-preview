@@ -497,6 +497,35 @@ header.main_header .nav-link.active { color: var(--brown) !important; }
 .genre_opt.sold_out .g_name { opacity: .5; }
 .genre_opt.sold_out .g_stock { color: #a04b4b; }
 
+/* "You might find…" panel under the category selector */
+.genre_vibes { display: none; }
+.genre_vibes.open {
+    display: block;
+    margin-top: 16px;
+    padding: 18px 22px 16px;
+    background: rgba(217, 192, 159, .2);
+    border-left: 3px solid var(--tan);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    animation: slideDown .3s ease;
+}
+.vibes_head {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--brown);
+    margin-bottom: 12px;
+}
+.vibes_row { display: flex; flex-wrap: wrap; gap: 8px; }
+.vibe {
+    background: var(--white);
+    border: 1px solid rgba(107, 79, 58, .16);
+    border-radius: 999px;
+    padding: 6px 15px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--brown-dark);
+}
+.vibes_note { font-size: 12px; color: #8b7868; margin: 13px 0 0; line-height: 1.65; }
+
 /* Spice selector */
 .spice_opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 11px; }
 .spice_opt {
