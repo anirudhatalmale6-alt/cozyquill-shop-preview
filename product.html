@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blind Date With a Book | The Cozy Quill</title>
+<meta name="description" content="Choose your romance category, tell us your reading tastes, and The Cozy Quill will hand-pick a mystery book just for you.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/images/1770760776_logo.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+<link href="assets/css/shop.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="demo_bar" id="demoBar">
+    <strong>STAGE 1 PREVIEW</strong> — front-end demonstration for Claudia. Pricing and photography are placeholders. Cart, checkout and Square payments are built in Stages 2–3.
+    <button type="button" onclick="document.getElementById('demoBar').remove()" aria-label="Dismiss">&times;</button>
+</div>
+
+<!-- ============================ HEADER ============================ -->
+<header class="main_header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="https://thecozyquill.au">
+                <img src="assets/images/1770760776_logo.png" alt="The Cozy Quill">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="https://thecozyquill.au">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://thecozyquill.au/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://thecozyquill.au/menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://thecozyquill.au/contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="cart_chip" href="#" onclick="cartPreview(event)">
+                            <i class="bi bi-bag"></i> Cart <span class="count" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="crumbs"><a href="index.html">Shop</a> &nbsp;/&nbsp; <span>Blind Date With a Book</span></div>
+</div>
+
+<!-- ============================ PRODUCT ============================ -->
+<section class="sec" style="padding-top:36px;">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- Gallery -->
+            <div class="col-lg-5">
+                <div style="position:sticky; top:24px;">
+                    <div class="gallery_main">
+                        <img id="galleryMain" src="assets/images/1770758631_cont_img.png" alt="Blind Date With a Book">
+                    </div>
+                    <div class="gallery_thumbs" id="galleryThumbs">
+                        <button class="active" data-src="assets/images/1770758631_cont_img.png"><img src="assets/images/1770758631_cont_img.png" alt=""></button>
+                        <button data-src="assets/images/1770752832_sec_4.png"><img src="assets/images/1770752832_sec_4.png" alt=""></button>
+                        <button data-src="assets/images/1770758913_img1.jpg"><img src="assets/images/1770758913_img1.jpg" alt=""></button>
+                        <button data-src="assets/images/1770759031_img3.jpg"><img src="assets/images/1770759031_img3.jpg" alt=""></button>
+                        <button data-src="assets/images/1770759073_img5.jpg"><img src="assets/images/1770759073_img5.jpg" alt=""></button>
+                    </div>
+                    <div class="ship_note" style="margin-top:20px;">
+                        <strong>Placeholder imagery.</strong> These are pulled from your existing website so the layout is real. Send me your parcel photos and they drop straight in.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buy column -->
+            <div class="col-lg-7">
+                <h1 class="pd_title">Blind Date With a Book</h1>
+                <p class="pd_short">Don't judge a book by its cover. Choose your romance mood, tell us what makes you swoon, and we'll match you with a mystery read chosen just for you. 💌📚</p>
+
+                <div class="pd_price_row">
+                    <span class="pd_price" id="pdPrice">$29.95</span>
+                    <span class="placeholder_flag">Placeholder price</span>
+                </div>
+
+                <form id="bdForm" novalidate>
+
+                    <!-- Q1 : Genre -->
+                    <div class="q_block">
+                        <div class="q_label">
+                            <h4>Choose Your Romance</h4>
+                            <span class="req_pill">Required</span>
+                        </div>
+                        <p class="q_help">Each category has its own stock count — sold-out categories close on their own without affecting the rest.</p>
+                        <div class="genre_opts" id="genreOpts"></div>
+                    </div>
+
+                    <!-- Q2 : Spice -->
+                    <div class="q_block">
+                        <div class="q_label">
+                            <h4>How Spicy Are We Feeling?</h4>
+                            <span class="req_pill">Required</span>
+                        </div>
+                        <div class="spice_opts" id="spiceOpts"></div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="q_block">
+                        <div class="q_label">
+                            <h4>What tropes do you love?</h4>
+                            <span class="opt_pill">Optional</span>
+                        </div>
+                        <textarea class="q_textarea" id="qTropes" rows="2" placeholder="Enemies to lovers, only one bed, slow burn, grumpy/sunshine…"></textarea>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="q_block">
+                        <div class="q_label">
+                            <h4>Anything you'd rather avoid?</h4>
+                            <span class="opt_pill">Optional</span>
+                        </div>
+                        <textarea class="q_textarea" id="qAvoid" rows="2" placeholder="Themes, tropes or content you'd prefer we steer clear of."></textarea>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="q_block">
+                        <div class="q_label">
+                            <h4>Books or authors you've already read?</h4>
+                            <span class="opt_pill">Optional</span>
+                        </div>
+                        <p class="q_help">So we never match you with something already on your shelf.</p>
+                        <textarea class="q_textarea" id="qOwned" rows="2" placeholder="Titles or authors already in your collection."></textarea>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="q_block">
+                        <div class="q_label">
+                            <h4>Anything else your book matchmaker should know?</h4>
+                            <span class="opt_pill">Optional</span>
+                        </div>
+                        <textarea class="q_textarea" id="qNotes" rows="2" placeholder="Tell us anything that would help us pick your perfect match."></textarea>
+                    </div>
+
+                    <!-- Gift -->
+                    <div class="q_block">
+                        <div class="gift_box">
+                            <label class="gift_check">
+                                <input type="checkbox" id="giftToggle">
+                                <span class="gc_text">🎁 Is this a gift?</span>
+                            </label>
+                            <div class="gift_fields" id="giftFields">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="q_input" id="giftName" placeholder="Recipient's name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="q_input" id="giftFrom" placeholder="From (your name)">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="q_textarea" id="giftMsg" rows="3" placeholder="Your gift message — we'll hand-write this on the card."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buy -->
+                    <div class="buy_row">
+                        <div class="qty_wrap">
+                            <button type="button" onclick="stepQty(-1)" aria-label="Decrease">&minus;</button>
+                            <input type="text" id="qty" value="1" readonly>
+                            <button type="button" onclick="stepQty(1)" aria-label="Increase">+</button>
+                        </div>
+                        <button type="submit" class="btn_quill"><i class="bi bi-bag-heart"></i> Add to Cart</button>
+                    </div>
+                </form>
+
+                <!-- Live matchmaker summary -->
+                <div class="match_card">
+                    <h4>Your Matchmaking Card</h4>
+                    <div class="mc_sub">This is exactly what lands in your inbox and admin when the order comes through.</div>
+                    <div class="match_line"><span class="ml_k">Romance</span><span class="ml_v empty" id="sumGenre">Not chosen yet</span></div>
+                    <div class="match_line"><span class="ml_k">Spice level</span><span class="ml_v empty" id="sumSpice">Not chosen yet</span></div>
+                    <div class="match_line"><span class="ml_k">Loves</span><span class="ml_v empty" id="sumTropes">—</span></div>
+                    <div class="match_line"><span class="ml_k">Avoid</span><span class="ml_v empty" id="sumAvoid">—</span></div>
+                    <div class="match_line"><span class="ml_k">Already owns</span><span class="ml_v empty" id="sumOwned">—</span></div>
+                    <div class="match_line"><span class="ml_k">Gift</span><span class="ml_v empty" id="sumGift">No</span></div>
+                </div>
+
+                <div class="ship_note">
+                    <strong>Flat-rate Australian shipping $10.55.</strong> Calculated at checkout and editable by you from the admin area at any time. Free-shipping thresholds and local pickup are built in and switched off until you want them.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ DETAIL ============================ -->
+<section class="sec sec_white">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <span class="eyebrow" style="font-size:11.5px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--brown-mid);display:block;margin-bottom:12px;">The Story</span>
+                <h2 style="font-size:42px; margin-bottom:22px;">Ready to fall for someone you haven't met yet?</h2>
+                <p>Blind Date With a Book takes the cover out of the equation and lets the story do the flirting. Choose your romance category, tell us a little about your reading tastes, and The Cozy Quill will hand-pick a mystery book for you.</p>
+                <p>Your book arrives wrapped, with only a few tantalising clues between you and your next fictional obsession.</p>
+                <p>You won't know the title. You won't know the author. You'll just have to trust the chemistry.</p>
+                <p style="font-family:var(--serif); font-size:23px; color:var(--brown); margin-top:26px;">Because sometimes the best love stories start with a blind date. 💌</p>
+            </div>
+            <div class="col-lg-5">
+                <div style="background:#fff; border-radius:14px; padding:32px 30px; box-shadow:0 6px 20px rgba(73,50,35,.09); border:1px solid rgba(107,79,58,.08);">
+                    <h3 style="font-size:28px; margin:0 0 18px;">What's Inside</h3>
+                    <ul class="included_list">
+                        <li><i class="bi bi-book-half"></i> One mystery romance paperback</li>
+                        <li><i class="bi bi-gift"></i> Blind Date wrapping and clue card</li>
+                        <li><i class="bi bi-bookmark-heart"></i> The Cozy Quill bookmark</li>
+                        <li><i class="bi bi-envelope-heart"></i> Thank-you / match card</li>
+                        <li><i class="bi bi-box-seam"></i> Protective packaging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="main_footer">
+    <div class="footer_top">
+        <div class="container">
+            <div>
+                <h3>Newsletter</h3>
+                <h2>Stay in Touch</h2>
+            </div>
+            <div>
+                <h4>with our community, events, &amp; more</h4>
+                <form onsubmit="return newsletterDemo(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer_mid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="assets/images/1770761193_footer_logo.png" alt="The Cozy Quill">
+                </div>
+                <div class="col-md-4">
+                    <h5>About</h5>
+                    <p>Where stories brew and memories are written. Your sanctuary for coffee, books, and community.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5>Quick Links</h5>
+                    <ul class="nav_links">
+                        <li><a href="https://thecozyquill.au">Home</a></li>
+                        <li><a href="https://thecozyquill.au/about">About</a></li>
+                        <li><a href="https://thecozyquill.au/menu">Menu</a></li>
+                        <li><a href="index.html">Shop</a></li>
+                        <li><a href="https://thecozyquill.au/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Get In Touch</h5>
+                    <div class="cont_info">
+                        <div><i class="fa-solid fa-phone"></i><a href="tel:+61420837199">+ 0420 837 199</a></div>
+                        <div><i class="fa-solid fa-envelope"></i><a href="mailto:hello@thecozyquill.au">hello@thecozyquill.au</a></div>
+                    </div>
+                    <ul class="cont_ul">
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">© 2026 The Cozy Quill. All rights reserved.</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="assets/js/shop.js"></script>
+</body>
+</html>
